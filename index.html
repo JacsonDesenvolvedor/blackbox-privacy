@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade - BlackBox Drivers</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1E88E5;
+            border-bottom: 3px solid #1E88E5;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2874A6;
+            margin-top: 30px;
+        }
+        ul {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .highlight {
+            background: #E3F2FD;
+            padding: 15px;
+            border-left: 4px solid #1E88E5;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 14px;
+        }
+        .warning {
+            background: #FFF3E0;
+            padding: 15px;
+            border-left: 4px solid #FF9800;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Política de Privacidade - BlackBox Drivers</h1>
+        <p><strong>Última atualização:</strong> 31 de Janeiro de 2026</p>
+        
+        <h2>1. Introdução</h2>
+        <p>O BlackBox Drivers ("nós", "nosso" ou "app") é um sistema de vigilância veicular desenvolvido pela <strong>Equipe BlackBox Drivers</strong>. Esta política explica de forma clara e transparente como coletamos, usamos, armazenamos e protegemos seus dados.</p>
+        
+        <h2>2. Dados Coletados pelo Aplicativo</h2>
+        <p>O BlackBox Drivers coleta os seguintes tipos de dados para suas funcionalidades:</p>
+        
+        <h3>2.1. Dados de Vídeo e Áudio</h3>
+        <ul>
+            <li><strong>Vídeos:</strong> Gravados pela câmera traseira ou frontal do dispositivo durante o uso de apps de navegação GPS (Google Maps, Waze, Uber e apps personalizados que você configurar)</li>
+            <li><strong>Áudio:</strong> Gravado quando o microfone está ativado nas configurações
+                <ul>
+                    <li>Vídeos em loop: COM áudio quando reconhecimento de voz está desativado</li>
+                    <li>Vídeos em loop: SEM áudio quando reconhecimento de voz está ativado (microfone precisa estar livre para comandos)</li>
+                    <li>Vídeos de emergência/pânico/especiais: SEMPRE com áudio</li>
+                </ul>
+            </li>
+            <li><strong>Qualidade de gravação:</strong> Configurável (Baixa SD, Média HD ou Alta FHD)</li>
+            <li><strong>Duração dos blocos:</strong> Vídeos gravados em segmentos de 1 minuto</li>
+        </ul>
+        
+        <h3>2.2. Dados de Localização GPS</h3>
+        <ul>
+            <li><strong>Localização precisa (GPS):</strong> Coordenadas de latitude e longitude coletadas EXCLUSIVAMENTE em situações de emergência quando o recurso de SMS está ativado</li>
+            <li><strong>Localização em segundo plano:</strong> Necessária para funcionar mesmo quando você está usando outros apps (como GPS, Waze, Uber)</li>
+            <li><strong>Quando é coletada:</strong>
+                <ul>
+                    <li>Ao detectar colisão (se habilitado)</li>
+                    <li>Ao detectar comando de voz "pânico" (se habilitado)</li>
+                    <li>Ao tocar 3 ou mais vezes no ícone flutuante</li>
+                </ul>
+            </li>
+            <li><strong>Uso da localização:</strong> Enviada via SMS para o número que VOCÊ configurou, junto com link do Google Maps</li>
+        </ul>
+        
+        <h3>2.3. Dados do Acelerômetro</h3>
+        <ul>
+            <li><strong>Leituras de impacto:</strong> Força G detectada pelo sensor de movimento</li>
+            <li><strong>Threshold configurável:</strong> Entre 10G e 30G (você ajusta a sensibilidade)</li>
+            <li><strong>Uso:</strong> Detecção automática de colisões para ativar modo de emergência</li>
+            <li><strong>Processamento:</strong> Local no dispositivo, dados não são transmitidos</li>
+        </ul>
+        
+        <h3>2.4. Dados de Sensor de Luz</h3>
+        <ul>
+            <li><strong>Nível de luminosidade:</strong> Leitura em lux para detectar dia/noite</li>
+            <li><strong>Uso:</strong> Ajustar intensidade da lanterna (PWM) automaticamente</li>
+            <li><strong>Threshold:</strong> Abaixo de 10 lux = modo noite</li>
+        </ul>
+        
+        <h3>2.5. Reconhecimento de Voz</h3>
+        <ul>
+            <li><strong>Gravações de áudio temporárias:</strong> Capturadas continuamente quando o reconhecimento de voz está ativado</li>
+            <li><strong>Palavra-chave:</strong> Padrão "pânico" (configurável por você)</li>
+            <li><strong>Confiança mínima:</strong> 70% a 95% (ajustável)</li>
+            <li><strong>Processamento:</strong> Local no dispositivo via SpeechRecognizer do Android</li>
+            <li><strong>Armazenamento:</strong> Áudio processado é descartado imediatamente, não é salvo</li>
+        </ul>
+        
+        <h3>2.6. Informações de Apps Instalados</h3>
+        <ul>
+            <li><strong>Estatísticas de uso:</strong> Para detectar quando apps GPS estão em execução em primeiro plano</li>
+            <li><strong>Apps monitorados por padrão:</strong>
+                <ul>
+                    <li>com.google.android.apps.maps (Google Maps)</li>
+                    <li>com.ubercab (Uber)</li>
+                    <li>com.waze (Waze)</li>
+                </ul>
+            </li>
+            <li><strong>Apps personalizados:</strong> Você pode adicionar outros apps de GPS (ex: iFood Entregas, 99, Cabify)</li>
+            <li><strong>Uso:</strong> Iniciar e parar gravação automaticamente</li>
+        </ul>
+        
+        <h3>2.7. Dados de Vibração e Lanterna</h3>
+        <ul>
+            <li><strong>Vibração:</strong> Usada para alertas de emergência (beeps)</li>
+            <li><strong>Lanterna:</strong> Código SOS morse em situações de emergência (após 30 segundos em modo pânico)</li>
+        </ul>
+        
+        <div class="highlight">
+            <strong>⚠️ IMPORTANTE:</strong> Todos os dados de vídeo, áudio e sensor permanecem APENAS no seu dispositivo. Não enviamos, não armazenamos em nuvem e não compartilhamos nenhum dado com servidores externos da Equipe BlackBox Drivers.
+        </div>
+        
+        <h2>3. Como Usamos os Dados</h2>
+        
+        <h3>3.1. Vídeos e Áudio</h3>
+        <ul>
+            <li><strong>Armazenamento local:</strong> Salvos EXCLUSIVAMENTE na memória do seu dispositivo (interna ou cartão SD)</li>
+            <li><strong>Pastas criadas:</strong>
+                <ul>
+                    <li><code>Movies/GPSRecorder/</code> ou <code>Movies/GPSRecorder_SD/</code> - Vídeos em loop (apagados automaticamente)</li>
+                    <li><code>Movies/Videos Especiais/</code> - Vídeos do modo especial (2 toques, nunca apagados)</li>
+                    <li><code>Movies/Videos de Emergencia/</code> - Vídeos de colisão/pânico (nunca apagados)</li>
+                </ul>
+            </li>
+            <li><strong>Controle total:</strong> Você pode visualizar, copiar ou apagar qualquer vídeo a qualquer momento</li>
+            <li><strong>Gerenciamento automático:</strong> Vídeos em loop são apagados quando atingem 10% a 60% do armazenamento (você configura)</li>
+        </ul>
+        
+        <h3>3.2. Localização GPS</h3>
+        <ul>
+            <li><strong>Uso EXCLUSIVO:</strong> Envio de SMS de emergência com suas coordenadas</li>
+            <li><strong>Formato do SMS:</strong>
+                <pre>🚨SOS DD/MM HH:mm
+https://maps.google.com/?q=LATITUDE,LONGITUDE</pre>
+            </li>
+            <li><strong>Destinatário:</strong> APENAS o número de telefone que você configurou (formato internacional: +55 11 99999-9999)</li>
+            <li><strong>Não rastreamos:</strong> Sua localização NÃO é monitorada continuamente, apenas em emergências</li>
+            <li><strong>Tentativas de obtenção:</strong>
+                <ul>
+                    <li>1º: Última localização conhecida (até 30 minutos atrás)</li>
+                    <li>2º: Nova leitura GPS/Network (timeout 30 segundos)</li>
+                    <li>Se falhar: SMS é enviado sem coordenadas com aviso "⚠️GPS indisponível"</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h3>3.3. Acelerômetro e Sensores</h3>
+        <ul>
+            <li><strong>Processamento local:</strong> Cálculos de força G feitos no dispositivo</li>
+            <li><strong>Filtro low-pass:</strong> Alpha 0.8 para reduzir ruído</li>
+            <li><strong>Cooldown:</strong> 5 segundos entre detecções para evitar falsos positivos</li>
+            <li><strong>Não transmitimos:</strong> Leituras do sensor não são enviadas para fora do dispositivo</li>
+        </ul>
+        
+        <h3>3.4. Reconhecimento de Voz</h3>
+        <ul>
+            <li><strong>Processamento em tempo real:</strong> Via API SpeechRecognizer do Android</li>
+            <li><strong>Descarte imediato:</strong> Áudio que não corresponde à palavra-chave é descartado</li>
+            <li><strong>Silenciamento automático:</strong> Para quando RMS está abaixo de -10dB (ruído de fundo)</li>
+            <li><strong>Reinício:</strong> 2 segundos após cada verificação</li>
+        </ul>
+        
+        <h2>4. Compartilhamento de Dados</h2>
+        
+        <div class="highlight">
+            <strong>NÃO compartilhamos nenhum dado com terceiros, parceiros, servidores da Equipe BlackBox Drivers ou serviços externos.</strong> Todos os dados permanecem no seu dispositivo sob seu controle total.
+        </div>
+        
+        <h3>4.1. Única Exceção: SMS de Emergência</h3>
+        <p>O envio de SMS é iniciado POR VOCÊ através de:</p>
+        <ul>
+            <li><strong>Comando de voz:</strong> Falar a palavra-chave configurada (padrão "pânico")</li>
+            <li><strong>Detecção de colisão:</strong> Impacto acima do threshold configurado</li>
+            <li><strong>Toque manual:</strong> 3 ou mais toques rápidos no ícone flutuante</li>
+        </ul>
+        
+        <p><strong>Conteúdo do SMS:</strong></p>
+        <ul>
+            <li>Alerta SOS</li>
+            <li>Data e hora (formato DD/MM HH:mm)</li>
+            <li>Coordenadas GPS (se disponível)</li>
+            <li>Link para Google Maps</li>
+        </ul>
+        
+        <p><strong>Destinatário:</strong> APENAS o número de telefone que você configurou manualmente</p>
+        
+        <p><strong>Frequência:</strong> SMS enviados a cada 15 a 60 segundos durante modo pânico (você configura)</p>
+        
+        <h3>4.2. Dados do Google/Android</h3>
+        <ul>
+            <li><strong>SpeechRecognizer:</strong> Reconhecimento de voz usa API do Google (processamento pode ser online)</li>
+            <li><strong>Google Maps:</strong> Link no SMS usa serviço do Google Maps</li>
+            <li><strong>MediaStore:</strong> Vídeos salvos via API oficial do Android</li>
+        </ul>
+        
+        <h2>5. Armazenamento e Retenção de Dados</h2>
+        
+        <h3>5.1. Vídeos em Loop</h3>
+        <ul>
+            <li><strong>Local:</strong> <code>Movies/GPSRecorder/</code> ou <code>Movies/GPSRecorder_SD/</code></li>
+            <li><strong>Formato:</strong> <code>GPSVideo-YYYY-MM-DD-HH-mm-ss-SSS.mp4</code></li>
+            <li><strong>Retenção:</strong> Apagados automaticamente quando atingir limite configurado (10% a 60% do armazenamento total)</li>
+            <li><strong>Critério de deleção:</strong> Vídeos mais antigos primeiro (ordem cronológica)</li>
+            <li><strong>Tamanho estimado:</strong> ~50 MB por minuto (varia com qualidade)</li>
+        </ul>
+        
+        <h3>5.2. Vídeos Especiais</h3>
+        <ul>
+            <li><strong>Local:</strong> <code>Movies/Videos Especiais/</code></li>
+            <li><strong>Ativação:</strong> 2 toques rápidos no ícone flutuante</li>
+            <li><strong>Característica:</strong> Gravação contínua com áudio (não para automaticamente)</li>
+            <li><strong>Retenção:</strong> NUNCA apagados automaticamente</li>
+            <li><strong>Controle:</strong> Você deve apagar manualmente quando desejar</li>
+        </ul>
+        
+        <h3>5.3. Vídeos de Emergência</h3>
+        <ul>
+            <li><strong>Local:</strong> <code>Movies/Videos de Emergencia/</code></li>
+            <li><strong>Formato do nome:</strong>
+                <ul>
+                    <li><code>EMERGENCIA_COLISAO_ATUAL_YYYY-MM-DD-HH-mm-ss-SSS.mp4</code></li>
+                    <li><code>EMERGENCIA_COLISAO_ANTERIOR_YYYY-MM-DD-HH-mm-ss-SSS.mp4</code></li>
+                    <li><code>EMERGENCIA_PANICO_ATUAL_YYYY-MM-DD-HH-mm-ss-SSS.mp4</code></li>
+                    <li><code>EMERGENCIA_PANICO_ANTERIOR_YYYY-MM-DD-HH-mm-ss-SSS.mp4</code></li>
+                </ul>
+            </li>
+            <li><strong>Conteúdo:</strong> Vídeo atual + vídeo anterior ao evento (2 vídeos por emergência)</li>
+            <li><strong>Áudio:</strong> SEMPRE gravado com áudio</li>
+            <li><strong>Câmera:</strong> Troca automaticamente para frontal em modo pânico</li>
+            <li><strong>Retenção:</strong> NUNCA apagados automaticamente</li>
+            <li><strong>Proteção:</strong> URIs copiadas são rastreadas para evitar duplicação</li>
+        </ul>
+        
+        <h3>5.4. Dados de Configuração</h3>
+        <ul>
+            <li><strong>SharedPreferences:</strong> Armazenadas localmente no dispositivo</li>
+            <li><strong>Conteúdo:</strong>
+                <ul>
+                    <li>Estado da câmera (Ativar/Desativar)</li>
+                    <li>Estado do microfone (Ativar/Desativar)</li>
+                    <li>Armazenamento escolhido (SD/Interna)</li>
+                    <li>Qualidade (Baixa/Média/Alta)</li>
+                    <li>Porcentagem de loop (10%-60%)</li>
+                    <li>Tamanho do ícone (Pequeno/Médio/Grande)</li>
+                    <li>Transparência (Baixo/Médio/Alto)</li>
+                    <li>Palavra-chave de voz</li>
+                    <li>Threshold de voz (0.5-0.95)</li>
+                    <li>Threshold de colisão (10-30G)</li>
+                    <li>Número de telefone SMS</li>
+                    <li>Apps GPS personalizados</li>
+                    <li>Posição do ícone flutuante (X, Y)</li>
+                    <li>Preferência "não mostrar aviso de segurança"</li>
+                </ul>
+            </li>
+            <li><strong>Persistência:</strong> Mantidos até desinstalar o app</li>
+        </ul>
+        
+        <h3>5.5. Deleção de Dados</h3>
+        <ul>
+            <li><strong>Manual:</strong> Você pode apagar vídeos individuais ou em lote a qualquer momento</li>
+            <li><strong>Desinstalação:</strong> Ao desinstalar o app, TODOS os dados (vídeos, configurações, preferências) são removidos</li>
+            <li><strong>Botão de apagar:</strong> Disponível na interface para cada pasta de vídeos</li>
+        </ul>
+        
+        <h2>6. Permissões Utilizadas e Justificativas</h2>
+        
+        <p>O app solicita as seguintes permissões Android e explica por que cada uma é necessária:</p>
+        
+        <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+            <thead>
+                <tr style="background: #E3F2FD;">
+                    <th style="border: 1px solid #ddd; padding: 12px; text-align: left;">Permissão</th>
+                    <th style="border: 1px solid #ddd; padding: 12px; text-align: left;">Justificativa</th>
+                    <th style="border: 1px solid #ddd; padding: 12px; text-align: left;">Código</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><strong>CAMERA</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Gravar vídeos durante a condução com câmera traseira ou frontal</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><code>android.permission.CAMERA</code></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><strong>RECORD_AUDIO</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Gravar áudio nos vídeos e reconhecer comandos de voz</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><code>android.permission.RECORD_AUDIO</code></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><strong>ACCESS_FINE_LOCATION</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Obter coordenadas GPS precisas para SMS de emergência</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><code>android.permission.ACCESS_FINE_LOCATION</code></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><strong>ACCESS_COARSE_LOCATION</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Localização aproximada como backup se GPS não estiver disponível</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><code>android.permission.ACCESS_COARSE_LOCATION</code></td>
+                </tr>
+                <tr style="background: #FFF3E0;">
+                    <td style="border: 1px solid #ddd; padding: 10px;"><strong>ACCESS_BACKGROUND_LOCATION</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><strong>CRÍTICO:</strong> Permitir GPS mesmo quando você está usando outros apps (Waze, Maps, Uber). Sem isso, SMS de emergência não terá localização!</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><code>android.permission.ACCESS_BACKGROUND_LOCATION</code></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><strong>SEND_SMS</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Enviar SMS de emergência com sua localização</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><code>android.permission.SEND_SMS</code></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><strong>READ_MEDIA_VIDEO / WRITE_EXTERNAL_STORAGE</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Salvar e gerenciar vídeos gravados no armazenamento</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><code>android.permission.READ_MEDIA_VIDEO</code></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><strong>PACKAGE_USAGE_STATS</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Detectar quando apps GPS (Maps, Waze, Uber, etc.) estão em uso para iniciar gravação automaticamente</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><code>android.permission.PACKAGE_USAGE_STATS</code></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><strong>SYSTEM_ALERT_WINDOW</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Exibir ícone flutuante de controle sobre outros apps</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><code>android.permission.SYSTEM_ALERT_WINDOW</code></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><strong>FOREGROUND_SERVICE</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Continuar gravando em segundo plano enquanto você usa GPS</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><code>android.permission.FOREGROUND_SERVICE</code></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><strong>FLASHLIGHT</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Ativar lanterna para código SOS em emergências</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><code>android.permission.FLASHLIGHT</code></td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><strong>VIBRATE</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Vibrar para alertas sonoros (beeps) em emergências</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><code>android.permission.VIBRATE</code></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="warning">
+            <strong>⚠️ ATENÇÃO SOBRE LOCALIZAÇÃO EM SEGUNDO PLANO:</strong><br><br>
+            A permissão <strong>ACCESS_BACKGROUND_LOCATION</strong> ("Permitir o tempo todo") é <strong>ESSENCIAL</strong> para que o SMS de emergência funcione corretamente.<br><br>
+            
+            <strong>Por quê?</strong><br>
+            Quando você está usando o app, normalmente você também está usando outro aplicativo GPS (Waze, Google Maps, Uber). Isso significa que o BlackBox Drivers está rodando em "segundo plano".<br><br>
+            
+            <strong>Sem "Permitir o tempo todo":</strong><br>
+            ❌ O Android bloqueia acesso ao GPS quando o app não está visível<br>
+            ❌ SMS de emergência é enviado SEM localização<br>
+            ❌ Você recebe apenas "🚨SOS ⚠️GPS indisponível"<br><br>
+            
+            <strong>Com "Permitir o tempo todo":</strong><br>
+            ✅ GPS funciona mesmo quando você está no Waze/Maps<br>
+            ✅ SMS contém suas coordenadas exatas<br>
+            ✅ Incluí link do Google Maps para sua localização<br><br>
+            
+            <strong>Como configurar:</strong><br>
+            Configurações do Android > Apps > BlackBox Drivers > Permissões > Localização > <strong>Permitir o tempo todo</strong>
+        </div>
+        
+        <h2>7. Segurança dos Dados</h2>
+        
+        <p>Implementamos as seguintes medidas de segurança:</p>
+        
+        <ul>
+            <li><strong>Nenhuma transmissão de dados pela internet:</strong> Exceto SMS de emergência (enviado pela operadora)</li>
+            <li><strong>Processamento local:</strong> Todo cálculo (colisão, voz, sensores) ocorre no dispositivo</li>
+            <li><strong>Proteção de arquivos:</strong> Vídeos protegidos pelas permissões de armazenamento do Android</li>
+            <li><strong>Sem servidores externos:</strong> Não temos banco de dados, servidor ou nuvem que possa ser hackeado</li>
+            <li><strong>Criptografia de armazenamento:</strong> Dependente do Android (se dispositivo tem criptografia habilitada)</li>
+            <li><strong>Desabilitação de sons:</strong> Sons do sistema são silenciados durante gravação para evitar ruídos</li>
+            <li><strong>Cooldowns de segurança:</strong>
+                <ul>
+                    <li>Emergência: 120 segundos entre ativações</li>
+                    <li>Colisão: 5 segundos entre detecções</li>
+                    <li>Triple-click: 1 segundo de cooldown</li>
+                </ul>
+            </li>
+            <li><strong>Cleanup de recursos:</strong> Limpeza adequada de câmera, sensores e executors ao fechar app</li>
+        </ul>
+        
+        <h2>8. Seus Direitos e Controles</h2>
+        
+        <p>Você tem total controle sobre seus dados:</p>
+        
+        <h3>8.1. Acesso aos Dados</h3>
+        <ul>
+            <li>Visualizar todos os vídeos gravados via galeria do Android</li>
+            <li>Acessar vídeos através das pastas do app na tela principal</li>
+            <li>Copiar vídeos para outros locais do dispositivo</li>
+            <li>Compartilhar vídeos via WhatsApp, email, etc.</li>
+        </ul>
+        
+        <h3>8.2. Exclusão de Dados</h3>
+        <ul>
+            <li><strong>Vídeos individuais:</strong> Apagar na galeria ou pelo app</li>
+            <li><strong>Todos os vídeos de uma categoria:</strong> Botão "Apagar Todos os Vídeos" para cada pasta</li>
+            <li><strong>Configurações:</strong> Resetar nas configurações do Android</li>
+            <li><strong>Todos os dados:</strong> Desinstalar o aplicativo</li>
+        </ul>
+        
+        <h3>8.3. Controle de Funcionalidades</h3>
+        <ul>
+            <li>Ativar/desativar câmera</li>
+            <li>Ativar/desativar microfone</li>
+            <li>Ativar/desativar reconhecimento de voz</li>
+            <li>Ativar/desativar detecção de colisão</li>
+            <li>Ativar/desativar SMS de emergência</li>
+            <li>Ativar/desativar SOS com lanterna</li>
+            <li>Configurar sensibilidades (voz, colisão)</li>
+            <li>Escolher apps GPS monitorados</li>
+        </ul>
+        
+        <h3>8.4. Revogação de Permissões</h3>
+        <ul>
+            <li>Revogar qualquer permissão nas configurações do Android a qualquer momento</li>
+            <li>App detecta revogação e ajusta funcionalidade automaticamente</li>
+            <li>Receiver monitora mudanças de permissões e reinicia serviço se necessário</li>
+        </ul>
+        
+        <h2>9. Uso Responsável e Ético</h2>
+        
+        <p>Ao usar o BlackBox Drivers, você concorda em:</p>
+        
+        <ul>
+            <li><strong>Usar apenas em veículos próprios</strong> ou com autorização expressa do proprietário</li>
+            <li><strong>Informar passageiros</strong> sobre a gravação ativa antes de iniciar viagem</li>
+            <li><strong>Respeitar leis de privacidade</strong> e gravação da sua região/país</li>
+            <li><strong>Não gravar em locais proibidos</strong> (áreas militares, hospitais, escolas, etc.)</li>
+            <li><strong>Não usar para fins ilegais</strong> ou antiéticos (perseguição, extorsão, chantagem)</li>
+            <li><strong>Não manipular o app enquanto dirige</strong> - configure tudo ANTES de iniciar viagem</li>
+            <li><strong>Manter celular seguro</strong> em suporte adequado durante condução</li>
+            <li><strong>Entender limitações:</strong> O app NÃO substitui serviços de emergência (190, 192, 193)</li>
+            <li><strong>Responsabilidade sobre vídeos:</strong> Você é responsável pelo conteúdo gravado e seu uso</li>
+        </ul>
+        
+        <div class="warning">
+            <strong>🚨 AVISO CRÍTICO DE SEGURANÇA:</strong><br><br>
+            
+            <strong>NÃO MANIPULE ESTE APLICATIVO ENQUANTO ESTIVER DIRIGINDO!</strong><br><br>
+            
+            • Configure tudo ANTES de iniciar a viagem<br>
+            • O app funciona automaticamente após ativado<br>
+            • Não toque no celular enquanto dirige<br>
+            • Mantenha os olhos na estrada<br>
+            • Sua segurança vem primeiro<br><br>
+            
+            <strong>Em caso de emergência:</strong><br>
+            → Encoste o veículo em local seguro<br>
+            → Somente então manipule o celular
+        </div>
+        
+        <h2>10. Menores de Idade</h2>
+        
+        <p>O BlackBox Drivers é destinado a <strong>motoristas habilitados (maiores de 18 anos)</strong>. Não coletamos intencionalmente dados de menores de idade.</p>
+        
+        <p>Se você é pai ou responsável e descobrir que seu filho forneceu informações ao app, entre em contato conosco para que possamos tomar as medidas adequadas.</p>
+        
+        <h2>11. Alterações nesta Política</h2>
+        
+        <p>Podemos atualizar esta política periodicamente para refletir:</p>
+        
+        <ul>
+            <li>Mudanças em funcionalidades do app</li>
+            <li>Alterações nas leis de privacidade</li>
+            <li>Atualizações de segurança</li>
+            <li>Feedback dos usuários</li>
+        </ul>
+        
+        <p><strong>Comunicação de mudanças:</strong></p>
+        <ul>
+            <li>Notificação dentro do app em atualizações significativas</li>
+            <li>Atualização da data "Última atualização" no topo desta página</li>
+            <li>Possível solicitação de nova aceitação para mudanças materiais</li>
+        </ul>
+        
+        <p>Recomendamos revisar esta política periodicamente para se manter informado.</p>
+        
+        <h2>12. Conformidade Legal</h2>
+        
+        <p>Esta política está em conformidade com:</p>
+        
+        <ul>
+            <li><strong>Lei Geral de Proteção de Dados (LGPD)</strong> - Lei nº 13.709/2018 - Brasil</li>
+            <li><strong>Marco Civil da Internet</strong> - Lei nº 12.965/2014 - Brasil</li>
+            <li><strong>Código de Defesa do Consumidor</strong> - Lei nº 8.078/1990 - Brasil</li>
+            <li><strong>Políticas do Google Play Store</strong> - Desenvolvedor Android</li>
+            <li><strong>Requisitos de Permissões do Android</strong> - API Level 29+ (Android 10+)</li>
+        </ul>
+        
+        <h3>12.1. Base Legal para Processamento (LGPD)</h3>
+        
+        <p>Processamos dados pessoais com base em:</p>
+        
+        <ul>
+            <li><strong>Consentimento:</strong> Você concede permissões explicitamente ao instalar e configurar o app</li>
+            <li><strong>Execução de contrato:</strong> Necessário para fornecer os serviços que você solicitou</li>
+            <li><strong>Legítimo interesse:</strong> Proteção da sua segurança e evidência em acidentes</li>
+            <li><strong>Proteção da vida:</strong> SMS de emergência em situações de risco</li>
+        </ul>
+        
+        <h2>13. Limitações e Isenções</h2>
+        
+        <p>O BlackBox Drivers é fornecido "como está" e você reconhece que:</p>
+        
+        <ul>
+            <li><strong>Funcionalidade depende de hardware:</strong> Qualidade da câmera, GPS, acelerômetro variam por dispositivo</li>
+            <li><strong>Armazenamento limitado:</strong> Vídeos ocupam espaço e podem ser apagados automaticamente</li>
+            <li><strong>GPS pode falhar:</strong> Túneis, prédios altos, mau tempo afetam sinal</li>
+            <li><strong>Reconhecimento de voz impreciso:</strong> Ruído, sotaques, idioma afetam detecção</li>
+            <li><strong>Detecção de colisão tem limites:</strong> Não garante 100% de precisão</li>
+            <li><strong>Bateria e desempenho:</strong> Gravação contínua consome bateria</li>
+            <li><strong>Não substitui dashcam profissional:</strong> Para uso crítico, considere equipamento dedicado</li>
+        </ul>
+        
+        <h2>14. Contato e Suporte</h2>
+        
+        <p>Para dúvidas, sugestões, solicitações ou exercício de direitos relacionados à privacidade, entre em contato:</p>
+        
+        <ul>
+            <li><strong>Email:</strong> jacsondesenvolvedor@gmail.com</li>
+            <li><strong>Desenvolvedor:</strong> Equipe BlackBox Drivers</li>
+            <li><strong>Localização:</strong> São José dos Pinhais, Paraná - Brasil</li>
+        </ul>
+        
+        <p><strong>Tempo de resposta:</strong> Nos esforçamos para responder dentro de 5 dias úteis.</p>
+        
+        <p><strong>Solicitações atendidas:</strong></p>
+        <ul>
+            <li>Confirmação de dados coletados</li>
+            <li>Correção de dados incorretos (em configurações)</li>
+            <li>Exclusão de dados (via desinstalação)</li>
+            <li>Portabilidade (você já tem acesso aos vídeos)</li>
+            <li>Revogação de consentimento (revogar permissões)</li>
+            <li>Informações sobre compartilhamento (não há)</li>
+            <li>Reclamações sobre privacidade</li>
+        </ul>
+        
+        <h2>15. Informações Técnicas Adicionais</h2>
+        
+        <h3>15.1. Especificações do App</h3>
+        <ul>
+            <li><strong>Plataforma:</strong> Android 10.0 (API 29) ou superior</li>
+            <li><strong>Versão atual:</strong> 1.0.0 (versionCode 1)</li>
+            <li><strong>Package name:</strong> com.blackbox.drivers</li>
+            <li><strong>Linguagem:</strong> Kotlin</li>
+            <li><strong>Framework UI:</strong> Jetpack Compose</li>
+            <li><strong>Biblioteca de câmera:</strong> AndroidX CameraX 1.3.4</li>
+        </ul>
+        
+        <h3>15.2. Formatos e Codecs</h3>
+        <ul>
+            <li><strong>Formato de vídeo:</strong> MP4 (H.264/AVC)</li>
+            <li><strong>Codec de áudio:</strong> AAC</li>
+            <li><strong>Resolução máxima:</strong> 1920x1080 (FHD)</li>
+            <li><strong>Taxa de quadros:</strong> 30 FPS</li>
+            <li><strong>Bitrate:</strong> Variável (depende da qualidade)</li>
+        </ul>
+        
+        <h3>15.3. Threads e Executors</h3>
+        <ul>
+            <li><strong>SingleThreadExecutor:</strong> Para operações de câmera</li>
+            <li><strong>Main Thread Handler:</strong> Para UI e callbacks</li>
+            <li><strong>Background Threads:</strong> Para limpeza de vídeos, cópia de emergência, SMS</li>
+            <li><strong>Timeout management:</strong> 8s init camera, 5s start recording</li>
+        </ul>
+        
+        <h3>15.4. Thresholds e Timeouts</h3>
+        <ul>
+            <li><strong>Check interval:</strong> 5 segundos (verificação de app GPS)</li>
+            <li><strong>Block duration:</strong> 60 segundos (duração de cada vídeo)</li>
+            <li><strong>Touch time:</strong> 200ms (detecção de toque vs arraste)</li>
+            <li><strong>Double click delta:</strong> 300ms</li>
+            <li><strong>Triple click cooldown:</strong> 1000ms</li>
+            <li><strong>Emergency cooldown:</strong> 120 segundos</li>
+            <li><strong>Min collision interval:</strong> 5 segundos</li>
+        </ul>
+        
+        <div class="footer">
+            <p><strong>BlackBox Drivers</strong> - Proteção Inteligente no Trânsito</p>
+            <p><strong>Desenvolvido por:</strong> Equipe BlackBox Drivers</p>
+            <p><strong>Email de contato:</strong> jacsondesenvolvedor@gmail.com</p>
+            <p><strong>Localização:</strong> São José dos Pinhais, Paraná - Brasil</p>
+            <p>Esta política de privacidade é efetiva a partir de 31 de Janeiro de 2026.</p>
+            <p>Versão 1.0.0 - Última atualização: 31 de Janeiro de 2026</p>
+            <hr>
+            <p style="font-size: 12px; color: #999;">
+                © 2026 Equipe BlackBox Drivers. Todos os direitos reservados.<br>
+                Este aplicativo respeita sua privacidade e está em conformidade com LGPD, Marco Civil da Internet e políticas do Google Play Store.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
